@@ -31,14 +31,17 @@ parser.add_argument(
 
 dic = vars(parser.parse_args())
 to_link = parser.parse_args().to_link
-print to_link
+# print to_link
 
 src_to_link = [os.path.join(os.getcwd(), f ) for f in to_link] 
 temp = []
 for i in range(len(src_to_link)):
 	if os.path.isfile(src_to_link[i]):
 		# print src_to_link, os.path.join(PATH_LINKS, to_link[i])
-		os.symlink(src_to_link[i], os.path.join(PATH_LINKS, to_link[i]))
-		print( "The file '%s' was symbolicly linked succesfully" % src_to_link[i] )
+		try: 
+			os.symlink(src_to_link[i], os.path.join(PATH_LINKS, to_link[i].split('/')[-1]))
+			print( "The file '%s' was symbolicly linked succesfully" % src_to_link[i] )
+		except:
+			print( "An error occured for the file '%s'"  % src_to_link[i] )
 
 
