@@ -1,1 +1,1 @@
-run path -h for instructions.
+The last program you will have to manualy add to your path. You should put this program in the PATH_LINKS directory (default ~/.mypath/) and add this directory to you path in your .bash_profileun path -h for instructions.
